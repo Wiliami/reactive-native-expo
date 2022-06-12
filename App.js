@@ -3,12 +3,12 @@ import 'react-native-gesture-handler';
 
 import { StatusBar } from 'expo-status-bar';
 import { useFonts, Anton_400Regular } from '@expo-google-fonts/anton';
-import Routes from './src/routes/router';
+import Routes from './src/routes';
 import AppLoading from 'expo-app-loading';
 
 
 
-function App() {
+export default function App() {
 
   let [fontsLoaded] = useFonts({
     Anton_400Regular,
@@ -21,11 +21,8 @@ function App() {
 
   return (
     <>
-      <StatusBar style="auto" backgroundColor="#fff" />
+      <StatusBar backgroundColor="#38A690" barStyle="light-content" />
       <Routes />
     </>
   );
 }
-
-
- export default App;
