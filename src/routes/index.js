@@ -4,7 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Signin from '../pages/SignIn';
 import Welcome from '../pages/Welcome';
-// import Home from  '../pages/Home';
+import Register from '../pages/Register';
+import Home from  '../pages/Home';
 // import Detail from '../pages/Detail';
 
 
@@ -19,21 +20,24 @@ export default function Routes () {
                 <Stack.Screen 
                     name="welcome"
                     component={Welcome} 
+                    options={{ headerShown: false }}
                 />
                 <Stack.Screen 
-                    name="signin"
+                    name="SignIn"
                     component={Signin} 
+                    options={{ headerShown: false }}
                 />
                 
-                {/* <Stack.Screen 
-                    name="Home"
-                    component={Home} 
+                <Stack.Screen 
+                    name="Register"
+                    component={Register}
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen
-                    name="Detail" 
-                    component={Detail} 
-                /> */}
+                    name="Home" 
+                    component={Home} 
+                    options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
