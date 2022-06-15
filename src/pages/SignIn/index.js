@@ -99,7 +99,5 @@ const styles = StyleSheet.create({
     },
     registerText: {
         color: '#a1a1a1',
-
     }
-
 })
