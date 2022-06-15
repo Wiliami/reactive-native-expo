@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+
+import { auth } from '../../services/firebaseConnection';
 
 import { useNavigation } from '@react-navigation/native';
 import * as Animatable from 'react-native-animatable';
 
 export default function SignIn () {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
+    function createUser() {
+        await createUserWithEmailAndPassword(auth, email, password)
+        .then(value => {
+            console.log('cadastrado com sucesso!\n' + value.user,uid)
+        })
+        .catch(error => console.log(error));
+    }
     const navigation = useNavigation();
 
     return (
@@ -19,19 +32,28 @@ export default function SignIn () {
                 <TextInput 
                 placeholder="Digite um e-mail..."
                 style={styles.input}
+                value={email}
+                onChangeText={value => setEmail(value)} 
                 />
 
                 <Text style={styles.title}>Senha</Text>
                 <TextInput 
                 placeholder="Digite uma senha..."
                 style={styles.input}
+                value={password}
+                onChangeText={value => setPassword(value)}
                 />
 
                 <TouchableOpacity 
                 style={styles.button}
                 onPress={ () => navigation.navigate('Home')}
                 >
-                    <Text style={styles.buttonText}>Acessar</Text>
+                    <Text 
+                    style={styles.buttonText}
+                    onPress={ () => createUser()}
+                    >
+                        Acessar
+                    </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
