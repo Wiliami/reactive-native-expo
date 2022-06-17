@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebaseConnection';
 
-import { useNavigation } from '@react-navigation/native';
 import * as Animatable from 'react-native-animatable';
 
 export default function SignIn () {
+    const navigation = useNavigation();
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    function createUser() {
-        await createUserWithEmailAndPassword(auth, email, password)
+    async function login() {
+        await signInWithEmailAndPassword(auth, email, password)
         .then(value => {
-            console.log('cadastrado com sucesso!\n' + value.user,uid)
+            console.log('Logado com sucesso!' + value);
         })
         .catch(error => console.log(error));
-    }
-    const navigation = useNavigation();
+    };
 
     return (
         <View style={styles.container}>
@@ -46,11 +46,10 @@ export default function SignIn () {
 
                 <TouchableOpacity 
                 style={styles.button}
-                onPress={ () => navigation.navigate('Home')}
                 >
                     <Text 
                     style={styles.buttonText}
-                    onPress={ () => createUser()}
+                    onPress={ () => login()}
                     >
                         Acessar
                     </Text>
@@ -58,9 +57,12 @@ export default function SignIn () {
 
                 <TouchableOpacity 
                 style={styles.buttonRegister}
-                onPress={ () => navigation.navigate('Register')}
                 >
-                    <Text style={styles.registerText}>Não possui uma conta? Cadastre-se.</Text>
+                    <Text style={styles.registerText}
+                    onPress={ () => navigation.navigate('Register')}
+                    >
+                        Não possui uma conta? Cadastre-se.
+                    </Text>
                 </TouchableOpacity>
             </Animatable.View>
 

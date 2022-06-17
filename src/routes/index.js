@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Signin from '../pages/SignIn';
+import SignUp from '../pages/SignUp';
 import Welcome from '../pages/Welcome';
 import Register from '../pages/Register';
 import Home from  '../pages/Home';
@@ -25,6 +26,11 @@ export default function Routes () {
                 <Stack.Screen 
                     name="SignIn"
                     component={Signin} 
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen 
+                    name="SignUp"
+                    component={SignUp}
                     options={{ headerShown: false }}
                 />
                 
