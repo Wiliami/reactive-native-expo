@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from "firebase/auth";
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCJg0W-Mwf_3WzeuohQv4rM-nsAqnwdRBU",
     authDomain: "fir-turtle-53625.firebaseapp.com",

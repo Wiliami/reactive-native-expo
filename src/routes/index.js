@@ -7,6 +7,8 @@ import SignUp from '../pages/SignUp';
 import Welcome from '../pages/Welcome';
 import Register from '../pages/Register';
 import Home from  '../pages/Home';
+import Task from  '../pages/Task';
+import NewTask from '../pages/NewTask'
 // import Detail from '../pages/Detail';
 
 
@@ -37,6 +39,16 @@ export default function Routes () {
                 <Stack.Screen 
                     name="Register"
                     component={Register}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Task" 
+                    component={Task} 
+                    options={{ headerShown: false }}
+                />
+                 <Stack.Screen
+                    name="NewTask" 
+                    component={NewTask} 
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen
