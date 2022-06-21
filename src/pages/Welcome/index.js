@@ -19,7 +19,7 @@ export default function Welcome() {
       </View>
 
       <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm}>
-        <Text style={styles.title}>Jovens JA!</Text>
+        <Text style={styles.title}>Seja bem-vindo!</Text>
         <Text style={styles.text}>Faça o login para começar</Text>
 
         <TouchableOpacity 

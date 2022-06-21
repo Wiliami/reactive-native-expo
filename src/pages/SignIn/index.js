@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebaseConnection';
 
 import * as Animatable from 'react-native-animatable';
@@ -24,7 +24,7 @@ export default function SignIn () {
     return (
         <View style={styles.container}>
             <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-                <Text style={styles.message}>Bem vindo(a)</Text>
+                <Text style={styles.message}>Login</Text>
             </Animatable.View>
 
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
