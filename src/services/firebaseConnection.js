@@ -1,10 +1,8 @@
-import { initializeApp } from 'firebase/app';
-import {} from 'firebase/firestore';
+// import { initializeApp } from 'firebase/app';
+import firebase from 'firebase'
 import { getAuth } from "firebase/auth";
-
-
+import { getFirestore } from "firebase/firestore";
 import "firebase/storage";
-
 
 
 const firebaseConfig = {
@@ -17,8 +15,8 @@ const firebaseConfig = {
     measurementId: "G-3KJRHXEKCR"
   };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+  firebase.initializeApp(firebaseConfig);
+  export const auth = getAuth(app);
 
-const database = firebase.firestore().settings({ experimentalForceLongPolling: true, merge: true });
-export default database;
+  const database = firebase.getFirestore();
+  export default database;
