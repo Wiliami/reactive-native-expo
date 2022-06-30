@@ -59,7 +59,7 @@ export default function SignIn () {
                 style={styles.buttonRegister}
                 >
                     <Text style={styles.registerText}
-                    onPress={ () => navigation.navigate('Register')}
+                    onPress={ () => navigation.navigate('Task')}
                     >
                         Não possui uma conta? Cadastre-se.
                     </Text>
