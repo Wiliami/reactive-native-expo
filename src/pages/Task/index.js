@@ -8,6 +8,8 @@ import { database } from '../../services/firebaseConnection';
 export default function Task() {
   const [ tasks, setStack ] = useState([]);
 
+ 
+
   useEffect(() => {
     database.collection('Tasks').onSnapshot((query) => {
       const list = [];
