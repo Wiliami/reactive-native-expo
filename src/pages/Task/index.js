@@ -9,7 +9,7 @@ export default function Task() {
   const [ tasks, setStack ] = useState([]);
 
  
-
+  
   useEffect(() => {
     database.collection('Tasks').onSnapshot((query) => {
       const list = [];
