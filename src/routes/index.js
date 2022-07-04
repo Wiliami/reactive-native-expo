@@ -9,6 +9,7 @@ import Register from '../pages/Register';
 import Home from  '../pages/Home';
 import Task from  '../pages/Task';
 import NewTask from '../pages/NewTask'
+import listUsers from '../pages/list-users';
 // import Detail from '../pages/Detail';
 
 
@@ -54,6 +55,11 @@ export default function Routes () {
                 <Stack.Screen
                     name="Home" 
                     component={Home} 
+                    options={{ headerShown: false }}
+                />
+                  <Stack.Screen
+                    name="Lista de usuários" 
+                    component={listUsers} 
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
