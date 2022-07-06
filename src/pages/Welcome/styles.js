@@ -1,30 +1,30 @@
 import styled from "styled-components";
 
 
-export const container = styled.view`
+export const Container = styled.view`
     
 `;
 
-export const containerLogo = styled.view`
+export const ContainerLogo = styled.view`
 
 `;
 
-export const containerForm = styled.view`
+export const ContainerForm = styled.view`
 
 `;
-export const title = styled.text`
-
-`;
-
-export const text = styled.text`
+export const Title = styled.text`
 
 `;
 
-export const button = styled.text`
+export const Text = styled.text`
 
 `;
 
-export const buttonText = styled.text`
+export const Button = styled.text`
+
+`;
+
+export const uttonText = styled.text`
 
 `;
 
