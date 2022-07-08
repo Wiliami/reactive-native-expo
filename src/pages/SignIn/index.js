@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebaseConnection';
-
 import * as Animatable from 'react-native-animatable';
+
+
 
 export default function SignIn () {
     const navigation = useNavigation();
 
+    const [ errorEmail, setErrorEmail ] = useState();
+    const [ errorName , setErrorName] = useState();
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+
+    const validate = () => {
+        let error = false;
+        if(!email == null) {
+            setErrorEmail('Preencha o seu E-mail');
+            error = true;
+        }
+    }
 
     async function login() {
         await signInWithEmailAndPassword(auth, email, password)
@@ -34,6 +45,7 @@ export default function SignIn () {
                 style={styles.input}
                 value={email}
                 onChangeText={value => setEmail(value)} 
+                errorMessage={errorEmail}
                 />
 
                 <Text style={styles.title}>Senha</Text>
@@ -42,6 +54,7 @@ export default function SignIn () {
                 style={styles.input}
                 value={password}
                 onChangeText={value => setPassword(value)}
+                errorMessage={errorName}
                 />
 
                 <TouchableOpacity 
@@ -59,7 +72,7 @@ export default function SignIn () {
                 style={styles.buttonRegister}
                 >
                     <Text style={styles.registerText}
-                    onPress={ () => navigation.navigate('Task')}
+                    onPress={ () => navigation.navigate('SignUp')}
                     >
                         Não possui uma conta? Cadastre-se.
                     </Text>
@@ -69,6 +82,7 @@ export default function SignIn () {
         </View>
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {
